@@ -1,12 +1,15 @@
 import json
 import unittest
-f = open('sample.json')
-#json.dumps py object -> json
-#what is json.loads() takes json -> py object
+f = open('sample.json', 'r')
+data = json.loads(f)
+for i in data:
+    print(i) 
 
-data = json.loads( f )
-refinedata = json.loads(data)
 
+# with open('sample.json') as f:
+#     data = json.loads( f.read() )
+#     for item in data: 
+#         print(item)
 #This function parses json for the 5 most expensive items from each category
 #unit testing in python 
     #do we have an entire test class for the entire function?
@@ -15,7 +18,7 @@ refinedata = json.loads(data)
 #    print(data)
 
 #printjson()
-print(refinedata)
+#print(refinedata)
 
 f.close()
 #figure out if p
