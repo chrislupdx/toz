@@ -1,25 +1,31 @@
 import json
 import unittest
 
+def printJSON(data):
+    for item in data:
+        print(item)
+returnData = {}
+
+#grab the 5 greatest prices from each category
+def topfive(data, returnData):
+
+    #count tne number of categories and the number of items in each category
+    addedCategories = {}
+    for item in data:
+        if item["type"] not in addedCategories:
+            addedCategories[item["type"]] = 0 #maybe throw on a count of items of that specific type?
+        else: 
+            addedCategories[item["type"]] =  addedCategories[item["type"]]  + 1
+    print(addedCategories)
+
+    #decrement each item{"type"} each time we find a specific type
+    for item in data:
+        
+
 with open('sample.json') as f:
     data = json.loads( f.read() )
-    for item in data: 
-        print(item)
-#This function parses json for the 5 most expensive items from each category
-#unit testing in python 
-    #do we have an entire test class for the entire function?
-
-#def printjson(data):
-#    print(data)
-
-#printjson()
-#print(refinedata)
-
+    topfive(data, returnData)
+    # print("printing items in returndata")
+    # for item in returnData:
+    #     print(item)
 f.close()
-#figure out if p
-
-#a function that takes sample.json
-
-#write a function that parses the json by "type" for the highest price,
-    #i think a simple grab the first of each type and iterate through each respective set of items for each type.
-
