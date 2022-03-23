@@ -2,30 +2,41 @@ import json
 import unittest
 
 def printJSON(data):
-    for item in data:
-        print(item)
+    for itemList in data:
+        print(itemList, "\n")
+
 returnData = {}
 
-#grab the 5 greatest prices from each category
+def evictCheapest(typeArr):
+    typeArr.sort(reverse = False, key = lambda items: items["price"])
+    typeArr.pop(0)
+
 def topfive(data, returnData):
-
-    #count tne number of categories and the number of items in each category
-    addedCategories = {}
     for item in data:
-        if item["type"] not in addedCategories:
-            addedCategories[item["type"]] = 0 #maybe throw on a count of items of that specific type?
-        else: 
-            addedCategories[item["type"]] =  addedCategories[item["type"]]  + 1
-    print(addedCategories)
-
-    #decrement each item{"type"} each time we find a specific type
-    for item in data:
-        
+        if item["type"] not in returnData:
+            returnData[item["type"]] = []
+            returnData[item["type"]].append(item)
+        elif len(returnData[item["type"]]) >= 5: #eviction
+            returnData[item["type"]].append(item)
+            evictCheapest(returnData[item["type"]])
+        else:
+            returnData[item["type"]].append(item)                    
+    print(returnData)
 
 with open('sample.json') as f:
     data = json.loads( f.read() )
-    topfive(data, returnData)
-    # print("printing items in returndata")
-    # for item in returnData:
-    #     print(item)
+    returnData = topfive(data, returnData)
+    print("printing items in returndata")
+    #printJSON(returnData)
+    print(returnData)
 f.close()
+
+#RESULTS (parsed by hand)
+#BOOK: 11.99, 12.99, 13.99, 14.99, 15.99
+#dvd: 11.99, 11.99, 11.99, 11.99, 
+#CD: 16.99, 17.99, 18.99, 19.99, 20.99. 
+
+#expected
+#Book: 15.99, 14.99, 13.99, 12.99, 11.99
+#DVD: 11.99, 11.99, 11.99, 11.99
+#CD: 16.99, 17.99, 18.99, 19.99, 20.99
