@@ -1,10 +1,6 @@
 import json
 import unittest
 
-def printJSON(data):
-    for itemList in data:
-        print(itemList, "\n")
-
 returnData = {}
 
 def evictCheapest(typeArr):
