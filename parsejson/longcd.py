@@ -1,11 +1,11 @@
 #parses the json for cds with length that runs longer that 60 minutes
 #convert 60 minutes into seconds
 # Which cds have a total running time longer than 60 minutes?
-import json
+# import json
 
 #sixy minutes is 3600 seconds
 minlen = 3600
-returnData = []
+#returnData = []
 
 #sum up track seconds
 def sumTrackTime(cddata, totalLength):
@@ -16,6 +16,7 @@ def sumTrackTime(cddata, totalLength):
 
 #creates an array of cds with tracks longer than 60 minutes
 def longerthansixty(data, returnData):
+    print("running longer than sixty seconds")
     for item in data:
         if item["type"] == "cd":
             totalLength = 0
@@ -25,8 +26,8 @@ def longerthansixty(data, returnData):
             if totalLength > minlen:
                 returnData.append(item)
 
-with open('sample.json') as f:
-    data = json.loads( f.read() )
-    longerthansixty(data, returnData)
-    print(returnData)
-f.close()
+# with open('sample.json') as f:
+#     data = json.loads( f.read() )
+#     longerthansixty(data, returnData)
+#     print(returnData)
+# f.close()

@@ -1,13 +1,14 @@
-import json
-import unittest
+# import json
+# import unittest
 
-returnData = {}
+#returnData = {}
 
 def evictCheapest(typeArr):
     typeArr.sort(reverse = False, key = lambda items: items["price"])
     typeArr.pop(0)
 
 def topfive(data, returnData):
+    print("running topfive")
     for item in data:
         if item["type"] not in returnData:
             returnData[item["type"]] = []
@@ -17,15 +18,15 @@ def topfive(data, returnData):
             evictCheapest(returnData[item["type"]])
         else:
             returnData[item["type"]].append(item)                    
-    print(returnData)
+    return returnData
 
-with open('sample.json') as f:
-    data = json.loads( f.read() )
-    returnData = topfive(data, returnData)
-    print("printing items in returndata")
-    #printJSON(returnData)
-    print(returnData)
-f.close()
+# with open('sample.json') as f:
+#     data = json.loads( f.read() )
+#     returnData = topfive(data, returnData)
+#     print("printing items in returndata")
+#     #printJSON(returnData)
+#     print(returnData)
+# f.close()
 
 #RESULTS (parsed by hand)
 #BOOK: 11.99, 12.99, 13.99, 14.99, 15.99

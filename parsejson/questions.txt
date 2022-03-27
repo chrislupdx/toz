@@ -1,3 +1,9 @@
 class interface necessary?
 test suite necessary?
 for author that are also a cd, is the repeating author (john) the same author? 
+
+
+returndata is [] : hasyear, longcd
+returndata is {} : fiveexpensive, authoralso
+
+mad: hasyear, cdlength

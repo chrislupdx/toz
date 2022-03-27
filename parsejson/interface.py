@@ -1,20 +1,30 @@
-#this guy is a class interface
-#import hasyear, authoralso, longcd, fiveexpensive
+import authoralso, fiveexpensive, hasyear, longcd, json
 
 class interface():
+    def openjson(userfunc):
+        #returnData = {}
+        if userfunc is hasyear or longcd:
+           returnData = []
+        if userfunc is fiveexpensive or authoralso:
+           returnData = {}
+        with open('sample.json') as f:
+            data = json.loads( f.read() )
+            returnData = userfunc(data, returnData) #then hit that
+            print("printing return data \n", returnData)
+        f.close()
+
     def menu():
-        #this gets thrown into a while loop
         print("Tozny takehome (parsing json) \n 1. has year \n 2. author also \n 3. cd length \n 4. five most expensive")
-        #takes in userintput via command line to pick wihch one
-        userinput = 0
+        userinput = int(input())
         if(userinput == 1):
-            print('running has year')
+            userfunc = hasyear.hasyear
         if(userinput == 2):
-            print("running author also")
+            userfunc = authoralso.authorsboth
         if(userinput == 3):
-            print("running cd length")
+            userfunc = longcd.longerthansixty
         if(userinput == 4):
-            print("running five most expensive")
+            userfunc = fiveexpensive.topfive
+        interface.openjson(userfunc)
 
 
 interface.menu()
