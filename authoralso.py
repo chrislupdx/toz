@@ -1,8 +1,9 @@
 '''Which authors have also released cds?'''
 
-def authorsboth(data, returnData):
+def authorsboth(data):
     '''authorsboths returns a returns an object containing a list of authors that also released a cd'''
     print("running authorsboth:")
+    returnData = {}
     cdAuthors = []
     bookAuthors = []
     for item in data:

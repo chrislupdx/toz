@@ -6,9 +6,10 @@ def sumTrackTime(cddata, totalLength):
         totalLength = totalLength + tracks["seconds"]
     return totalLength
 
-def longerthansixty(data, returnData):
+def longerthansixty(data):
     '''longerthansixty returns a list of CDs who's cumulative track time exceeds 60 minutes'''
-    print("running longer than sixty seconds")
+    print("running longer than sixty seconds:")
+    returnData = []
     for item in data:
         if item["type"] == "cd":
             totalLength = 0

@@ -5,9 +5,11 @@ def evictCheapest(typeArr):
     typeArr.sort(reverse = False, key = lambda items: items["price"])
     typeArr.pop(0)
 
-def topfive(data, returnData):
-    '''topfive returns an object with a list of the five most expensive items in each category'''
+# def topfive(data, returnData):
+def topfive(data):
+    '''topfive returns an map from category to the five most expensive items in that respective category'''
     print("running topfive:")
+    returnData = {}
     for item in data:
         if item["type"] not in returnData:
             returnData[item["type"]] = []
