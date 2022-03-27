@@ -2,18 +2,19 @@ import authoralso, fiveexpensive, hasyear, longcd, json
 
 class interface():
     def openjson(userfunc):
-        # print("userfunc is ", userfunc)
-        returnData = {}
-        if userfunc is hasyear.hasyear or longcd.longerthansixty: #these conditionals are not working
-           returnData = []
-        #else:
-        #elif userfunc is fiveexpensive.topfive or authoralso.authorsboth:
-        #if userfunc is fiveexpensive.topfive or authoralso.authorsboth:
-            
+        if userfunc is hasyear.hasyear:
+            returnData = []
+        elif userfunc is longcd.longerthansixty:
+            returnData = []
+        elif userfunc is authoralso.authorsboth:
+            returnData = {}
+        elif userfunc is fiveexpensive.topfive:
+            returnData = {}
+
         with open('sample.json') as f:
             data = json.loads( f.read() )
             returnData = userfunc(data, returnData) #then hit that
-            print("printing return data \n", returnData)
+            print("returnData after is ", returnData)
         f.close()
 
     def menu():
