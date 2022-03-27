@@ -17,6 +17,8 @@ def sumTrackTime(cddata, totalLength):
 #creates an array of cds with tracks longer than 60 minutes
 def longerthansixty(data, returnData):
     print("running longer than sixty seconds")
+    print("returndata is ", returnData)
+
     for item in data:
         if item["type"] == "cd":
             totalLength = 0
@@ -25,6 +27,7 @@ def longerthansixty(data, returnData):
             # print("totallength after is ", totalLength)
             if totalLength > minlen:
                 returnData.append(item)
+    return returnData
 
 # with open('sample.json') as f:
 #     data = json.loads( f.read() )

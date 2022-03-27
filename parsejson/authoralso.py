@@ -6,6 +6,8 @@
 #traverses JSON for 
 def authorsboth(data, returnData):
     print("running authorsboth:")
+    print("returndata is ", returnData)
+
     cdAuthors = []
     bookAuthors = []
     for item in data:

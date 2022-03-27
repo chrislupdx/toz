@@ -1,14 +1,10 @@
-# import json
-# import unittest
-
-#returnData = {}
-
 def evictCheapest(typeArr):
     typeArr.sort(reverse = False, key = lambda items: items["price"])
     typeArr.pop(0)
 
 def topfive(data, returnData):
     print("running topfive")
+    print("returndata is ", returnData)
     for item in data:
         if item["type"] not in returnData:
             returnData[item["type"]] = []

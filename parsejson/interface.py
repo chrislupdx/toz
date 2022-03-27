@@ -2,11 +2,14 @@ import authoralso, fiveexpensive, hasyear, longcd, json
 
 class interface():
     def openjson(userfunc):
-        #returnData = {}
-        if userfunc is hasyear or longcd:
+        # print("userfunc is ", userfunc)
+        returnData = {}
+        if userfunc is hasyear.hasyear or longcd.longerthansixty: #these conditionals are not working
            returnData = []
-        if userfunc is fiveexpensive or authoralso:
-           returnData = {}
+        #else:
+        #elif userfunc is fiveexpensive.topfive or authoralso.authorsboth:
+        #if userfunc is fiveexpensive.topfive or authoralso.authorsboth:
+            
         with open('sample.json') as f:
             data = json.loads( f.read() )
             returnData = userfunc(data, returnData) #then hit that
@@ -25,6 +28,5 @@ class interface():
         if(userinput == 4):
             userfunc = fiveexpensive.topfive
         interface.openjson(userfunc)
-
 
 interface.menu()

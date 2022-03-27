@@ -4,6 +4,7 @@
 
 def hasyear(data, returnData):
     print("running hasyear")
+    print("returndata is ", returnData)
     for item in data:
         #check if it has a title, track, or chapter
         if(item["title"] or item["tracks"] or item["chapter"]):
