@@ -1,6 +1,5 @@
 #parses the json for cds with length that runs longer that 60 minutes
-#sixy minutes is 3600 seconds
-minlen = 3600
+minlen = 3600 #sixy minutes is 3600 seconds
 def sumTrackTime(cddata, totalLength):
     for tracks in cddata["tracks"]:
         totalLength = totalLength + tracks["seconds"]

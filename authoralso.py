@@ -1,3 +1,4 @@
+#Which authors have also released cds?
 def authorsboth(data, returnData):
     print("running authorsboth:")
     cdAuthors = []
