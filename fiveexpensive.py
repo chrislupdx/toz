@@ -1,9 +1,12 @@
-#What are the 5 most expensive items from each category?
+'''What are the 5 most expensive items from each category? '''
+
 def evictCheapest(typeArr):
+    '''evictCheapest is a helper function that removes the cheapest item from a list of items'''
     typeArr.sort(reverse = False, key = lambda items: items["price"])
     typeArr.pop(0)
 
 def topfive(data, returnData):
+    '''topfive returns an object with a list of the five most expensive items in each category'''
     print("running topfive:")
     for item in data:
         if item["type"] not in returnData:
