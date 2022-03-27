@@ -5,8 +5,7 @@ def loadjson():
         return json.loads( f.read() )
 
 def menu():
-    done = False
-    while(done is False):
+    while(True):
         print("Tozny takehome (parsing json) \n 1. has year \n 2. author also \n 3. cd length \n 4. five most expensive \n 5. exit")
         userinput = int(input())
         if(userinput == 1):
@@ -23,7 +22,6 @@ def menu():
         data = loadjson()
         res = userfunc(data)
         pprint.pprint(res)
-        #feed json into userfunc(json)
 
 if __name__ == "__main__":
     '''if this file is being run as the main file, this is the main function'''
