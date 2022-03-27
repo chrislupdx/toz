@@ -2,6 +2,7 @@ import authoralso, fiveexpensive, hasyear, longcd, json
 
 class interface():
     def openjson(userfunc):
+        #I tried grouping these together and python didn't quite like that so that's why each condition gets its own unique elif
         if userfunc is hasyear.hasyear:
             returnData = []
         elif userfunc is longcd.longerthansixty:
